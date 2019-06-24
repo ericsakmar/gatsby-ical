@@ -1,8 +1,48 @@
-body {
+body,
+h1,
+h2 {
   font-family: monospace;
+  line-height: 1.4em;
+}
+
+a {
+  color: dodgerblue;
+}
+
+h1 {
+  text-align: center;
 }
 
 .app {
   max-width: 30em;
   margin: 0 auto;
+  font-size: 1em;
+}
+
+main {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-row-gap: 1em;
+}
+
+.event {
+  margin-bottom: 1em;
+}
+
+h2 {
+  font-size: 1em;
+  text-align: right;
+  border-right: 1px dashed black;
+  padding-right: 0.5em;
+  height: 100%;
+  font-weight: 500;
+}
+
+.day {
+  padding-left: 0.5em;
+}
+
+.secondary {
+  font-style: italic;
+  color: goldenrod;
 }

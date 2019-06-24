@@ -25,14 +25,20 @@ export default ({ data }) => {
   const days = Object.keys(grouped)
     .sort()
     .map(day => (
-      <div key={day}>
-        <h2>{moment(day).format("dddd, MMMM Do")}</h2>
-        <ul>
+      <React.Fragment key={day}>
+        <h2>
+          <div>{moment(day).format("dddd")}</div>
+          <div className="secondary">{moment(day).format("MMM D")}</div>
+        </h2>
+        <div className="day">
           {grouped[day].map(e => (
-            <li key={e.id}>{e.summary}</li>
+            <div className="event" key={e.id}>
+              <div>{e.summary}</div>
+              <div className="secondary location">{e.location}</div>
+            </div>
           ))}
-        </ul>
-      </div>
+        </div>
+      </React.Fragment>
     ))
 
   return (
