@@ -5,10 +5,8 @@ import * as moment from "moment"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export default ({ data }) => {
-  const events = data.allEvents.edges.map(e => e.node)
-
-  const grouped = events.reduce((acc, e) => {
+const group = events =>
+  events.reduce((acc, e) => {
     const day = e.day
 
     if (!acc[day]) {
@@ -19,6 +17,10 @@ export default ({ data }) => {
 
     return acc
   }, {})
+
+export default ({ data }) => {
+  const events = data.allEvents.edges.map(e => e.node)
+  const grouped = group(events)
 
   const days = Object.keys(grouped)
     .sort()
