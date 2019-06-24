@@ -2,9 +2,17 @@ module.exports = {
   siteMetadata: {
     title: "Shows Near Me?!",
     description: "It's back... kind of.",
+    author: "es",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-ical`,
+      options: {
+        name: `events`,
+        url: process.env.ICAL_URL,
+      },
+    },
     // {
     //   resolve: `gatsby-source-filesystem`,
     //   options: {
